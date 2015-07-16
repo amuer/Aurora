@@ -10,7 +10,7 @@ import javax.xml.bind.JAXBException;
 import java.io.File;
 
 /**
- * ´æ·ÅµÄÊÇ·şÎñµÄÒ»Ğ©»ù±¾ĞÅÏ¢£¬±ÈÈç±¾·şÎñ½ø³ÌµÄid¡¢ÀàĞÍ¡¢¼¯ÈºÂ·ÓÉµØÖ·µÈµÈ£¬Ó¦ÓÃĞèÒªµÚÒ»¸ö¶Á±¾ÅäÖÃ
+ * å­˜æ”¾çš„æ˜¯æœåŠ¡çš„ä¸€äº›åŸºæœ¬ä¿¡æ¯ï¼Œæ¯”å¦‚æœ¬æœåŠ¡è¿›ç¨‹çš„idã€ç±»å‹ã€é›†ç¾¤è·¯ç”±åœ°å€ç­‰ç­‰ï¼Œåº”ç”¨éœ€è¦ç¬¬ä¸€ä¸ªè¯»æœ¬é…ç½®
  * Created by wangqiang on 2015/7/15.
  */
 public class BaseInfoConfig implements IConfig
@@ -59,7 +59,7 @@ public class BaseInfoConfig implements IConfig
     {
         BaseInfoConfig baseInfoConfig = new BaseInfoConfig();
         String path = "E:\\opensource\\Aurora\\tools\\jaxb\\Server.xml";
-        String bean = "com.amuer.aurora.xml.server";
+        String bean = "com.amuer.aurora.base.xml.server";
         baseInfoConfig.loadConfigFile(path, bean);
         Server server = (Server) baseInfoConfig.getConfigEntity();
         System.out.println(server.getVersion());

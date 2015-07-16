@@ -7,37 +7,37 @@ package com.amuer.aurora.base.config;
 public interface IConfig
 {
     /**
-     *  »ñÈ¡ÅäÖÃÖĞµÄ¶ÔÓ¦valueÖµ
+     *  è·å–é…ç½®ä¸­çš„å¯¹åº”valueå€¼
      * @param key
-     * @return json»òÕßxml¸ñÊ½µÄ×Ö·û´®£¬Ê§°Ü·µ»Ønull
+     * @return jsonæˆ–è€…xmlæ ¼å¼çš„å­—ç¬¦ä¸²ï¼Œå¤±è´¥è¿”å›null
      */
     public String getValue(String key);
 
     /**
      *
      * @param key
-     * @return object¶ÔÏó ·µ»ØPOJO¶ÔÏó£¬Ê§°Ü·µ»Ønull
+     * @return objectå¯¹è±¡ è¿”å›POJOå¯¹è±¡ï¼Œå¤±è´¥è¿”å›null
      */
     public Object getObject(String key);
 
     /**
-     *  È¡ÅäÖÃÖĞµÄPOJOÊµÀı
+     *  å–é…ç½®ä¸­çš„POJOå®ä¾‹
      * @return
      */
     public Object getConfigEntity();
 
     /**
-     * ¶ÁÅäÖÃ
-     * @param path ÅäÖÃÎÄ¼şµÄ¾ø¶ÔÂ·¾¶
+     * è¯»é…ç½®
+     * @param path é…ç½®æ–‡ä»¶çš„ç»å¯¹è·¯å¾„
      * @param bean
-     * @return ³É¹¦·µ»Ø0 Ê§°Ü·µ»Ø´íÎóÂë
+     * @return æˆåŠŸè¿”å›0 å¤±è´¥è¿”å›é”™è¯¯ç 
      */
     public int loadConfigFile(String path, String bean);
 
     /**
-     * ÖØĞÂ¶ÁÈ¡ÅäÖÃ£¬Ö÷ÒªÓÃÓÚÈÈ¸üĞÂÒ»Ğ©ÅäÖÃ
+     * é‡æ–°è¯»å–é…ç½®ï¼Œä¸»è¦ç”¨äºçƒ­æ›´æ–°ä¸€äº›é…ç½®
      * @param path
-     * @return ³É¹¦·µ»Ø0 Ê§°Ü·µ»Ø´íÎóÂë
+     * @return æˆåŠŸè¿”å›0 å¤±è´¥è¿”å›é”™è¯¯ç 
      */
     public int reloadConfigFile(String path);
 
