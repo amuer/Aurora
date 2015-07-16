@@ -1,0 +1,1 @@
+xjc Server.xsd -d . -p com.amuer.aurora.xml.Server

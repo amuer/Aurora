@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Server version="1">
+	<ZookeeperServer>
+		<Host ip="127.0.0.1" port="2131"/>
+		<Host ip="127.0.0.1" port="2132"/>
+	</ZookeeperServer>
+	<RouterServer id="1">
+		<ServerInfo>
+			<address ip="127.0.0.1" port="10001"/>
+		</ServerInfo>
+	</RouterServer>
+</Server>
