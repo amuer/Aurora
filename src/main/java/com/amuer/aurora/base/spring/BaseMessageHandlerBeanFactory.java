@@ -38,5 +38,6 @@ public class BaseMessageHandlerBeanFactory extends AbsSpringBeanFactory
     {
         BaseMessageHandlerBeanFactory.getInstance().initBeanFactory("BaseMessageHandlerBean.xml");
         BaseMessageHandlerBeanFactory.getInstance().getBean("1");
+        System.out.println(BaseMessageHandlerBeanFactory.getInstance().getBean("1").getClass());
     }
 }
