@@ -1,0 +1,7 @@
+package com.amuer.aurora.base.protocol.protobuf;
+
+message BaseMessage
+{
+    required int32 serverType = 1;
+    required int32 serverID = 2;
+}
