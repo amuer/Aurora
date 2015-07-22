@@ -2,6 +2,7 @@ package com.amuer.aurora.base.msgFactory;
 
 import com.amuer.aurora.base.protocol.protobuf.PbBaseMessage;
 import com.amuer.aurora.base.spring.BaseMessageHandlerBeanFactory;
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +20,7 @@ public class ProtobufMsgFactory extends  AbsProtobufMsgFactory
         return instance;
     }
 
-
-    public static void main(String args[])
+    public static void main(String args[]) throws InvalidProtocolBufferException
     {
         ProtobufMsgFactory.getInstance().setAbsSpringBeanFactory(BaseMessageHandlerBeanFactory.getInstance());
 
@@ -38,13 +38,10 @@ public class ProtobufMsgFactory extends  AbsProtobufMsgFactory
 
         BaseMessageHandlerBeanFactory.getInstance().initBeanFactory("BaseMessageHandlerBean.xml");
 
-        int time = (int) System.currentTimeMillis();
         Message m = (Message) ProtobufMsgFactory.getInstance().createMessage(1, b);
-        int time1 = (int) System.currentTimeMillis();
         PbBaseMessage.BaseMessage baseMessage1 = (PbBaseMessage.BaseMessage) m;
 
         System.out.println(baseMessage1.getServerID());
         System.out.println(baseMessage1.getServerType());
-        System.out.println(time1 - time);
     }
 }
