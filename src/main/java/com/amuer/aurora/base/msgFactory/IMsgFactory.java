@@ -6,5 +6,4 @@ package com.amuer.aurora.base.msgFactory;
 public interface IMsgFactory
 {
     public Object createMessage(int id, byte[] msg);
-    public Object createMessage(String  id);
 }
