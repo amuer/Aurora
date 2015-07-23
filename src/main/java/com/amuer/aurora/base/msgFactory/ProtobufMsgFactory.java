@@ -36,9 +36,14 @@ public class ProtobufMsgFactory extends  AbsProtobufMsgFactory
 //        System.out.println(baseMessage2.getServerID());
 //        System.out.println(baseMessage2.getServerType());
 
-        BaseMessageHandlerBeanFactory.getInstance().initBeanFactory("BaseMessageHandlerBean.xml");
+        BaseMessageHandlerBeanFactory.getInstance().initBeanFactory("BaseMessageFactoryBean.xml");
 
-        Message m = (Message) ProtobufMsgFactory.getInstance().createMessage(1, b);
+        Message m = (Message) ProtobufMsgFactory.getInstance().createMessage(2, b);
+        if (m ==null)
+        {
+            System.out.println("get bean is null");
+            System.exit(0);
+        }
         PbBaseMessage.BaseMessage baseMessage1 = (PbBaseMessage.BaseMessage) m;
 
         System.out.println(baseMessage1.getServerID());
