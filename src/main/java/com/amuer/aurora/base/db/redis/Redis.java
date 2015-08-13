@@ -11,7 +11,7 @@ public class Redis
 {
     private static final Logger logger = LoggerFactory.getLogger(Redis.class);
 
-    public String getKey(String key)
+    public static String getKey(String key)
     {
         if (key.isEmpty())
         {
@@ -33,6 +33,7 @@ public class Redis
         catch (Exception e)
         {
             logger.error("cann't get key{}, exception:{}",key, e.toString());
+            e.printStackTrace();
         }
         finally
         {
@@ -42,7 +43,7 @@ public class Redis
 
     }
 
-    public String setvalue(String key, String value)
+    public static String setvalue(String key, String value)
     {
         if (key.isEmpty())
         {
@@ -64,6 +65,42 @@ public class Redis
         try
         {
             result = jedis.set(key, value);
+        }
+        catch (Exception e)
+        {
+            logger.error("set value error, key:{}, value:{}, exception:{}", key, value, e.toString());
+            e.printStackTrace();
+        }
+        finally
+        {
+            RedisPool.getInstance().returnResource(jedis);
+            return result;
+        }
+    }
+
+    public static String setvalue(String key, String value, int timeout)
+    {
+        if (key.isEmpty())
+        {
+            logger.error("key is empty");
+        }
+
+        if (value.isEmpty())
+        {
+            logger.error("value is empty");
+        }
+
+        Jedis jedis = RedisPool.getInstance().getJedisFromPool();
+        if (jedis == null)
+        {
+            return null;
+        }
+
+        String result = null;
+        try
+        {
+            result = jedis.set(key, value);
+            jedis.expire(key, timeout);
         }
         catch (Exception e)
         {
