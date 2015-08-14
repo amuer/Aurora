@@ -34,8 +34,6 @@ public class RedisPool
             return -1;
         }
 
-        DBConfigBeanFactory.getInstance().initBeanFactory("DBConfigBean.xml");
-
         RedisPoolConfig redisPoolConfig = (RedisPoolConfig) DBConfigBeanFactory.getInstance().getBean("redisPoolConfig");
         jedisPool = new JedisPool((JedisPoolConfig)redisPoolConfig, redisPoolConfig.getHost(), redisPoolConfig.getPort());
         isLoadRedisConfigAndInitPool = true;
@@ -75,6 +73,7 @@ public class RedisPool
 
     public static void main(String args[])
     {
+        DBConfigBeanFactory.getInstance().initBeanFactory("DBConfigBean.xml");
         RedisPool.getInstance().loadRedisConfig();
         Jedis j = RedisPool.getInstance().getJedisFromPool();
         j.set("wq", "zy");
